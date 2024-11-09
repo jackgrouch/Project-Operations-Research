@@ -1,107 +1,54 @@
 [![INFORMS Journal on Computing Logo](https://INFORMSJoC.github.io/logos/INFORMS_Journal_on_Computing_Header.jpg)](https://pubsonline.informs.org/journal/ijoc)
 
-# CacheTest
+# Layout Optimization for a Large-Scale Grid-Connected Solar Power Plant
 
 This archive is distributed in association with the [INFORMS Journal on
 Computing](https://pubsonline.informs.org/journal/ijoc) under the [MIT License](LICENSE).
 
-The software and data in this repository are a snapshot of the software and data
-that were used in the research reported on in the paper 
-[This is a Template](https://doi.org/10.1287/ijoc.2019.0000) by T. Ralphs. 
-The snapshot is based on 
-[this SHA](https://github.com/tkralphs/JoCTemplate/commit/f7f30c63adbcb0811e5a133e1def696b74f3ba15) 
-in the development repository. 
-
-**Important: This code is being developed on an on-going basis at 
-https://github.com/tkralphs/JoCTemplate. Please go there if you would like to
-get a more recent version or would like support**
+The software and data in this repository are a snapshot of data and results
+that were used in the research reported on in the paper
+[Layout Optimization for a Large-Scale Grid-Connected Solar Power Plant](https://doi.org/10.1287/ijoc.2023.0223) by Chong Wang, Qinghua Wu, Kai Pan, and Zuo-Jun Max Shen.
 
 ## Cite
 
 To cite the contents of this repository, please cite both the paper and this repo, using their respective DOIs.
 
-https://doi.org/10.1287/ijoc.2019.0000
+https://doi.org/10.1287/ijoc.2023.0223
 
-https://doi.org/10.1287/ijoc.2019.0000.cd
+https://doi.org/10.1287/ijoc.2023.0223.cd
 
 Below is the BibTex for citing this snapshot of the repository.
 
 ```
-@misc{CacheTest,
-  author =        {T. Ralphs},
+@misc{Wang2024,
+  author =        {Wang, Chong AND Wu, Qinghua AND Pan, Kai AND Shen, Zuo-Jun Max},
   publisher =     {INFORMS Journal on Computing},
-  title =         {{CacheTest}},
-  year =          {2020},
-  doi =           {10.1287/ijoc.2019.0000.cd},
-  url =           {https://github.com/INFORMSJoC/2019.0000},
-  note =          {Available for download at https://github.com/INFORMSJoC/2019.0000},
-}  
+  title =         {Layout optimization for a large-scale grid-connected solar power plant},
+  year =          {2024},
+  doi =           {10.1287/ijoc.2023.0223.cd},
+  url =           {https://github.com/INFORMSJoC/2023.0223},
+  note =          {Available for download at \url{https://github.com/INFORMSJoC/2023.0223}},
+}
 ```
 
 ## Description
 
-The goal of this software is to demonstrate the effect of cache optimization.
+The goal of this repository is to share data and results related to the Integrated Location and Routing (ILR) problem within a large-scale solar power plant, solved using our exact solution approach.
 
-## Building
+## Data
 
-In Linux, to build the version that multiplies all elements of a vector by a
-constant (used to obtain the results in [Figure 1](results/mult-test.png) in the
-paper), stepping K elements at a time, execute the following commands.
+The instances are originally collected from the Hubei Branch of the [State Grid Corporation of China](http://www.sgcc.com.cn/html/sgcc_main_en/index.shtml). All sensitive or confidential information has been appropriately desensitized.
 
-```
-make mult
-```
+Each instance (denoted by "district_<span>$a$</span>-<span>$b$</span>") represents a grid-connected solar power plant with a set of photovoltaic arrays (PVAs) continuously placed in a PV farm. Here, $a$ is the number of districts, and $b$ is an index representing different layout shapes. Each district in these plants has 109 slots of PVAs, one of which is removed to install an inverter.
 
-Alternatively, to build the version that sums the elements of a vector (used
-to obtain the results [Figure 2](results/sum-test.png) in the paper), stepping K
-elements at a time, do the following.
-
-```
-make clean
-make sum
-```
-
-Be sure to make clean before building a different version of the code.
+Please see the [data](data) directory to view the data and detailed descriptions.
 
 ## Results
 
-Figure 1 in the paper shows the results of the multiplication test with different
-values of K using `gcc` 7.5 on an Ubuntu Linux box.
+The results present the optimal solutions for all instances, solved using our exact solution approach. We develop exact algorithms to solve the ILR problem through a decomposition framework, which yields a variant of Benders decomposition and guarantees an optimal solution. Additionally, we implement an exact branch-and-cut scheme to solve each subproblem within the decomposition framework, integrating cutting planes and separation algorithms to enhance solution precision.
 
-![Figure 1](results/mult-test.png)
-
-Figure 2 in the paper shows the results of the sum test with different
-values of K using `gcc` 7.5 on an Ubuntu Linux box.
-
-![Figure 1](results/sum-test.png)
-
-## Replicating
-
-To replicate the results in [Figure 1](results/mult-test), do either
-
-```
-make mult-test
-```
-or
-```
-python test.py mult
-```
-To replicate the results in [Figure 2](results/sum-test), do either
-
-```
-make sum-test
-```
-or
-```
-python test.py sum
-```
-
-## Ongoing Development
-
-This code is being developed on an on-going basis at the author's
-[Github site](https://github.com/tkralphs/JoCTemplate).
+Please see the [results](results) directory to view the optimal solutions and detailed descriptions.
 
 ## Support
 
-For support in using this software, submit an
-[issue](https://github.com/tkralphs/JoCTemplate/issues/new).
+For support in using this data, submit an [issue](https://github.com/tkralphs/JoCTemplate/issues/new).
