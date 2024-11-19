@@ -45,11 +45,13 @@ Please see the [data](data) directory to view the data and detailed descriptions
 
 ## Results
 
-The results present the optimal solutions for all instances, solved using our exact solution approach. We develop exact algorithms to solve the ILR problem through a decomposition framework, which yields a variant of Benders decomposition and guarantees an optimal solution. Additionally, we implement an exact branch-and-cut scheme to solve each subproblem within the decomposition framework, integrating cutting planes and separation algorithms to enhance solution precision.
+The results present the optimal solutions for all instances, solved using our exact solution approach.
 
 Please see the [results](results) directory to view the optimal solutions and detailed descriptions.
 
 ## Building
+
+We develop exact algorithms to solve the ILR problem through a decomposition framework, which yields a variant of Benders decomposition and guarantees an optimal solution. Additionally, we implement an exact branch-and-cut scheme to solve each subproblem within the decomposition framework, integrating cutting planes and separation algorithms to enhance solution precision.
 
 ### Prerequisites
 
